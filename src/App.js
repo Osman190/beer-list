@@ -1,26 +1,49 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import axios from "axios";
+import "./App.css";
+import { Link } from "react-router-dom";
+import Routes from "./components/Routes";
+import BeersList from "./components/BeersList";
 
 class App extends Component {
+  state = {
+    items: [],
+    loading: true
+  };
+
+  callApi() {
+    const domain = process.env.REACT_APP_DOMAIN || "http://localhost";
+    const port = process.env.REACT_APP_BACKENDPORT || 3005;
+    axios
+      .get(`${domain}:${port}/beers`)
+      .then(items => {
+        this.setState({ items: items.data.data, loading: false });
+      })
+      .catch(error => console.log(error));
+  }
+
+  componentDidMount() {
+    this.callApi();
+  }
+
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+    return !this.state.loading ? (
+      <div id="main">
+        <table className="">
+          <thead>
+            <tr>
+              <th id="name">Beer Name</th>
+              <th id="abv">Beer abv</th>
+              <th id="ibu">Beer ibu</th>
+            </tr>
+          </thead>
+          <tbody>
+            <BeersList items={this.state.items} />
+          </tbody>
+        </table>
       </div>
+    ) : (
+      <div>No Data</div>
     );
   }
 }
