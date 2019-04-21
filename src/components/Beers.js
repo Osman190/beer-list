@@ -1,11 +1,20 @@
 import React, { Component } from "react";
 
 class Beers extends Component {
+  state = {
+    beerItem: this.props.location.state.item
+  };
   render() {
-    console.log(this.props);
+    const beerInfo = { ...this.state.beerItem };
+    console.log(beerInfo);
     return (
       <div>
-        <h1>Hello Form the other side</h1>
+        <h1 className="">{beerInfo.name}</h1>
+        <h1 className="">{beerInfo.abv}</h1>
+        <h1 className="">{beerInfo.ibu}</h1>
+        <h1 className="">{beerInfo.isOrganic}</h1>
+        <h1 className="">{beerInfo.status}</h1>
+        {beerInfo.labels ? <img src={beerInfo.labels.large} alt="img" className="" /> : ""}
       </div>
     );
   }

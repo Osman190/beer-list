@@ -3,14 +3,20 @@ import { Link } from "react-router-dom";
 
 const BeersList = props => {
   let beersList = props.items;
-  console.log(beersList);
   return beersList.map((item, i) => {
     return (
       <tr className="container" key={i}>
         <th>
           {item.name}
           <div className="button_cont" align="center">
-            <Link to={`/beers/${item.name}`}>
+            <Link
+              to={{
+                pathname: `/beer/${item.name}`,
+                state: {
+                  item
+                }
+              }}
+            >
               <button className="example_d">details</button>
             </Link>
           </div>

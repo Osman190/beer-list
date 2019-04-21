@@ -35,8 +35,8 @@ class App extends Component {
           <thead>
             <tr>
               <th id="name">Beer Name</th>
-              <th id="abv">Beer abv</th>
-              <th id="ibu">Beer ibu</th>
+              <th id="abv">Beer ABV%</th>
+              <th id="ibu">Beer IBU</th>
             </tr>
           </thead>
           <tbody>
