@@ -1,6 +1,97 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+body,
+html {
+  /* background: linear-gradient(90deg, #a8e0cd, #a8e0cd); */
+  /* box-shadow: inset 0px 0px 90px rgba(0, 0, 0, 0.5); */
+  margin: 0px;
+  padding: 0px;
+}
+
+.demo {
+  width: 100px;
+  height: 102px;
+  border-radius: 100%;
+  position: absolute;
+  top: 45%;
+  left: calc(50% - 50px);
+}
+
+.circle {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.circle .inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border: 5px solid rgba(27, 27, 27, 0);
+  border-right: none;
+  border-top: none;
+  backgroudn-clip: padding;
+  box-shadow: inset 0px 0px 10px rgb(15, 15, 15);
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.circle:nth-of-type(0) {
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.circle:nth-of-type(0) .inner {
+  -webkit-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+}
+
+.circle:nth-of-type(1) {
+  -webkit-transform: rotate(70deg);
+  transform: rotate(70deg);
+}
+.circle:nth-of-type(1) .inner {
+  -webkit-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+}
+
+.circle:nth-of-type(2) {
+  -webkit-transform: rotate(140deg);
+  transform: rotate(140deg);
+}
+.circle:nth-of-type(2) .inner {
+  -webkit-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+}
+
+.demo {
+  -webkit-animation: spin 5s infinite linear;
+  animation: spin 5s infinite linear;
+}
+
 table {
   border-collapse: collapse;
-  width: 100%;
+  background: #ffffff;
+  position: absolute;
+  width: 90%;
+  margin: 50px;
 }
 th,
 td {
@@ -14,4 +105,24 @@ tbody tr:nth-child(odd) {
 thead {
   background-color: black;
   color: white;
+}
+tbody tr:hover {
+  background: rgba(0, 128, 117, 0.555);
+}
+.example_d {
+  color: #494949 !important;
+  border-radius: 50px;
+  border-color: #494949 !important;
+  transition: all 0.3s ease 0s;
+  display: inline-block;
+  float: right;
+  margin-top: -20px;
+  padding-bottom: 2px;
+}
+.example_d:hover {
+  color: #20bf6b !important;
+  background: #ffffff;
+  padding: 5px;
+  border: 4px solid #20bf6b !important;
+  border-radius: 6px;
 }

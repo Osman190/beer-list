@@ -1,26 +1,28 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
-import { Link } from "react-router-dom";
-import Routes from "./components/Routes";
+
 import BeersList from "./components/BeersList";
+import Spinner from "./components/Spinner";
 
 class App extends Component {
   state = {
     items: [],
     loading: true
   };
-
-  callApi() {
+  deleteSpinner = () => {
+    this.setState({ loading: !this.state.loading });
+  };
+  callApi = () => {
     const domain = process.env.REACT_APP_DOMAIN || "http://localhost";
     const port = process.env.REACT_APP_BACKENDPORT || 3005;
     axios
       .get(`${domain}:${port}/beers`)
       .then(items => {
-        this.setState({ items: items.data.data, loading: false });
+        this.setState({ items: items.data.data, loading: !this.state.loading });
       })
       .catch(error => console.log(error));
-  }
+  };
 
   componentDidMount() {
     this.callApi();
@@ -43,7 +45,7 @@ class App extends Component {
         </table>
       </div>
     ) : (
-      <div>No Data</div>
+      <Spinner />
     );
   }
 }
