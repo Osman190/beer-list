@@ -2,6 +2,9 @@
 
 This simple beer list app build based on https://www.brewerydb.com/ API using simple Node server as proxy for the API. And with the small and necessary npm packages for server and client side in case the app goes online it will be lighter on the server and response faster.
 
+#### React Client Side Development:
+ Used create react app then and fetch the server url and setthe data to the state then used 2 route to build the app and the 2nd page get the data throw the URL route.
+
 
 In the project directory, you can run:
 
@@ -14,5 +17,9 @@ This command line will trigger the node server and the create react app credenti
 The app needs KEY from from https://www.brewerydb.com/developers/apps and URL, ENDPOINT in .env file for the server.  
 
 
+![Getting Started](./images/spinner.png)
 
+![Getting Started](./images/list.png)
+
+![Getting Started](./images/details.png)
 
