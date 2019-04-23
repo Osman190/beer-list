@@ -16,10 +16,12 @@ This command line will trigger the node server and the create react app credenti
 ### Deployment
 The app needs KEY from from https://www.brewerydb.com/developers/apps and URL, ENDPOINT in .env file for the server.  
 
-
+#### spiner
 ![Getting Started](./images/spinner.png)
 
+#### First Page
 ![Getting Started](./images/list.png)
 
+#### Second Page
 ![Getting Started](./images/details.png)
 
