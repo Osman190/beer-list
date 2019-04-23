@@ -19,7 +19,9 @@ class App extends Component {
     axios
       .get(`${domain}:${port}/beers`)
       .then(items => {
-        this.setState({ items: items.data.data, loading: !this.state.loading });
+        setTimeout(() => {
+          this.setState({ items: items.data.data, loading: !this.state.loading });
+        }, 2000);
       })
       .catch(error => console.log(error));
   };

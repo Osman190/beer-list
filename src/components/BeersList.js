@@ -11,10 +11,8 @@ const BeersList = props => {
           <div className="button_cont" align="center">
             <Link
               to={{
-                pathname: `/beer/${item.name}`,
-                state: {
-                  item
-                }
+                pathname: `/beer/${item.id}`,
+                state: { item }
               }}
             >
               <button className="example_d">details</button>
